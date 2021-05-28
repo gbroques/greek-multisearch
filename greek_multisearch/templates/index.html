@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greek Dictionary</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: rgba(0, 0, 0, 0.87);
+            background-color: #fafafa;
+            font-size: 1.25rem;
+        }
+        table {
+            border-spacing: 0px;
+        }
+        th {
+            position: sticky;
+            top: 0px;
+            background: #fafafa;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            z-index: 2;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+        th, td {
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Gender</th>
+                <th>Romanization</th>
+                <th>Translation</th>
+                <th>Audio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results -%}
+            <tr>
+                {% for key, value in result.items() -%}
+                <td>
+                {% if key == 'audio' -%}
+                    <audio controls>
+                        <source src="{{ value }}"></source>
+                    </audio>
+                {%- else %}
+                    {{ value }}
+                {% endif -%}
+                </td>
+                {%- endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
