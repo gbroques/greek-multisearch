@@ -17,7 +17,7 @@ env = Environment(
 )
 template = env.get_template('index.html')
 
-links = [
+link_templates = [
     'https://www.google.gr/search?tbm=isch&q={}',
     'https://translate.google.com/?sl=el&tl=en&text={}&op=translate'
     'https://el.wiktionary.org/wiki/{}',
@@ -33,7 +33,7 @@ class App(QWidget):
         text, ok = QInputDialog.getText(
             self, 'Greek Multisearch', 'Enter your search phrase:', QLineEdit.Normal, '')
         if ok and text != '':
-            for link_template in links:
+            for link_template in link_templates:
                 link = link_template.format(text)
                 webbrowser.open_new_tab(link)
             search_greekpod101_dictionary(text)
