@@ -19,7 +19,7 @@ template = env.get_template('index.html')
 
 link_templates = [
     'https://www.google.gr/search?tbm=isch&q={}',
-    'https://translate.google.com/?sl=el&tl=en&text={}&op=translate'
+    'https://translate.google.com/?sl=el&tl=en&text={}&op=translate',
     'https://el.wiktionary.org/wiki/{}',
     'https://forvo.com/search/{}/',
     'https://www.wordreference.com/gren/{}'
