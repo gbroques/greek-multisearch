@@ -22,7 +22,8 @@ link_templates = [
     'https://translate.google.com/?sl=el&tl=en&text={}&op=translate',
     'https://el.wiktionary.org/wiki/{}',
     'https://forvo.com/search/{}/',
-    'https://www.wordreference.com/gren/{}'
+    'https://www.wordreference.com/gren/{}',
+    'https://en.bab.la/dictionary/greek-english/{}'
 ]
 
 
