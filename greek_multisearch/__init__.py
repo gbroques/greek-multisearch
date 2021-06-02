@@ -17,6 +17,13 @@ env = Environment(
 )
 template = env.get_template('index.html')
 
+links = [
+    'https://www.google.gr/search?tbm=isch&q={}',
+    'https://el.wiktionary.org/wiki/{}',
+    'https://forvo.com/search/{}/',
+    'https://www.wordreference.com/gren/{}'
+]
+
 
 class App(QWidget):
 
@@ -25,10 +32,9 @@ class App(QWidget):
         text, ok = QInputDialog.getText(
             self, 'Greek Multisearch', 'Enter your search phrase:', QLineEdit.Normal, '')
         if ok and text != '':
-            webbrowser.open_new_tab(
-                'https://www.google.gr/search?tbm=isch&q=' + text)
-            webbrowser.open_new_tab('https://el.wiktionary.org/wiki/' + text)
-            webbrowser.open_new_tab('https://forvo.com/search/' + text + '/')
+            for link_template in links:
+                link = link_template.format(text)
+                webbrowser.open_new_tab(link)
             search_greekpod101_dictionary(text)
         sys.exit()
 
